@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
+  <div class="container">
+    <h1>  <strong>Chef's Table</strong>!</h1>
+    <p>Good food is a celebration for life..</p>
+    <a class="btn btn-ghost" href="#">Private Chefs</a>
+  </div>
+</div>
+
+<div class="container">
+  <h2>All kind of cuisines</h2>
+
+  <div class="preview">
+
+    <div class="card-product">
+      <img src="<%= asset_path('sushi.jpg')%>" />
+      <p>Japanese</p>
+    </div>
+    <div class="card-product">
+      <img src="<%= asset_path('pasta.jpg')%>" />
+      <p>Italian</p>
+    </div>
+    <div class="card-product">
+      <img src="<%= asset_path('indian.jpg')%>" />
+      <p>Indian</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<br><br><br>
