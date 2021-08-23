@@ -1,4 +1,4 @@
-.card-product {
+.card-preview {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -6,10 +6,11 @@
   align-items: center;
   width: 300px;
   border-radius: 5px;
+  justify-content: center;
 
 }
 
-.card-product img {
+.card-preview img {
   object-fit: cover;
   width: 300px;
   height: 200px;
