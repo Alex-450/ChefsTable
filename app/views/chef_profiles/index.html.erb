@@ -1,4 +1,6 @@
 <h1>Chefs profiles</h1>
 <% @chef_profiles.each do |chef_profile| %>
-  <%= link_to 'chef_profile.chef_name', chef_profile_path%>
+  <% @user = User.find(chef_profile.user_id) %>
+  <%= @user.first_name %>
+  <%= chef_profile.user_id %>
 <% end %>
