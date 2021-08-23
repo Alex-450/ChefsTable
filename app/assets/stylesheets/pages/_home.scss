@@ -1,1 +1,6 @@
 // Specific CSS for your home-page
+.preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
