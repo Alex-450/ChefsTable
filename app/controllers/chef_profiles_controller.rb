@@ -1,4 +1,5 @@
 class ChefProfilesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_chef_profile, only: :show
 
   def index
