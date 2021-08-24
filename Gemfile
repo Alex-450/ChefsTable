@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
+# Kitignor
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use pundit for specific path auth
 gem 'pundit'
 # Use devise for user auth
