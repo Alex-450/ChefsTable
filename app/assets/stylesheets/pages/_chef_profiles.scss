@@ -4,10 +4,11 @@ main {
   margin: 0 auto;
 
   a {
-    color: white;
+    color: black;
+    margin-bottom: 20px;
   }
 
-  a:hover {
+  a:hover{
     color: gray;
     text-decoration: none;
   }
