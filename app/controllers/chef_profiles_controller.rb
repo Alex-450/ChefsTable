@@ -14,20 +14,12 @@ class ChefProfilesController < ApplicationController
   end
 
   def create
-    # make sure user does not have a chef profile yet
-    @chef_profile = ChefProfile.find_by(user_id: current_user.id)
-    if @chef_profile.present?
-      # TODO: it would be better to return an error in this case
+    @chef_profile = ChefProfile.create(chef_profile_params)
+    @chef_profile.user_id = current_user.id
+    if @chef_profile.save
       redirect_to chef_profile_path(@chef_profile)
     else
-      # create and save new chef profile
-      @chef_profile = ChefProfile.create(chef_profile_params)
-      @chef_profile.user_id = current_user.id
-      if @chef_profile.save
-        redirect_to chef_profiles_path
-      else
-        render :new
-      end
+      render :new
     end
   end
 
