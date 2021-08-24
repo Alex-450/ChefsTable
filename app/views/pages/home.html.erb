@@ -1,10 +1,13 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
   <div class="container">
     <h1>  <strong>Chef's Table</strong>!</h1>
-    <p>
-      <span id="banner-typed-text"></span>
+      <p>
+        <span id="banner-typed-text"></span>
       </p>
-    <a class="btn btn-ghost" href="#">Private Chefs</a>
+    <%= form_tag chef_profiles_path, class:"d-flex", method: :get do %>
+      <%= text_field_tag :keyword, nil, placeholder: "Cuisine", class:"form-tag"%>
+      <%= submit_tag "Private Chef", class: "btn btn-ghost" %>
+    <% end %>
   </div>
 </div>
 
