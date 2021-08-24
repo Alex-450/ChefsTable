@@ -1,13 +1,21 @@
-<header>
-  <h1>Chefs profiles</h1>
+<header class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
+  <div class="container">
+    <h1>My Chefs Profiles</h1>
+  </div>
 </header>
-<ul>
-  <% @chef_profiles.each do |chef_profile| %>
-    <% user = User.find(chef_profile.user_id) %>
-    <li>
-      <%= link_to chef_profile_path(chef_profile) do %>
-        <%= user.first_name %> <%= user.last_name%>
-      <% end %>
+<main class="container mt-5">
+  <ul class="preview">
+    <% @chef_profiles.each do |chef_profile| %>
+      <% user = User.find(chef_profile.user_id) %>
+      <li class="card-preview">
+        <img src="<%= asset_path('banner.jpg')%>" />
+        <%= link_to chef_profile_path(chef_profile) do %>
+          <%= user.first_name %> <%= user.last_name%>
+        <% end %>
+      </li>
+    <% end %>
+    <li class="add-list">
+      <%= link_to 'add new profile', new_chef_profile_path %>
     </li>
-  <% end %>
-</ul>
+  </ul>
+</main>
