@@ -1,0 +1,15 @@
+.form-tag {
+  // opacity: 0.9;
+  border: white solid 1px;
+  background: transparent;
+  color: white;
+  padding: 8px;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+}
+
+
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}

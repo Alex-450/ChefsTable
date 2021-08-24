@@ -1,12 +1,21 @@
-<% user = User.find(@chef_profile.user_id) %>
-<header>
-  <h1><%= user.first_name %> <%= user.last_name %></h1>
-</header>
-<dl>
-  <dt>Cuisine</dt>
-  <dd><%= @chef_profile.cuisine %></dd>
-  <dt>Location</dt>
-  <dd><%= @chef_profile.location %></dd>
-</dl>
-<%= link_to 'back to chef profiles',  chef_profiles_path %>
-<%= link_to 'delete chef profile',  chef_profile_path, method: :delete %>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6">
+      <% user = User.find(@chef_profile.user_id) %>
+      <header>
+        <h1><%= user.first_name %> <%= user.last_name %></h1>
+      </header>
+      <dl>
+        <dt>Cuisine</dt>
+        <dd><%= @chef_profile.cuisine %></dd>
+        <dt>Location</dt>
+        <dd><%= @chef_profile.location %></dd>
+      </dl>
+      <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-primary' %>
+      <%= link_to 'back to chef profiles',  chef_profiles_path %>
+      <% if policy(@chef_profile).destroy? %>
+        <%= link_to 'delete chef profile',  chef_profile_path, method: :delete %>
+      <% end %>
+    </div>
+  </div>
+</div>

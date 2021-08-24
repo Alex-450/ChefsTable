@@ -1,8 +1,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
   <div class="container">
     <h1>  <strong>Chef's Table</strong>!</h1>
-    <p><span id="banner-typed-text"></span></p>
+    <p>
+      <span id="banner-typed-text"></span>
+    </p>
     <%= link_to 'Private Chefs', {controller: "chef_profiles", action: "index"}, class: "btn btn-ghost" %>
+      <p>
+        <span id="banner-typed-text"></span>
+      </p>
+    <%= form_tag chef_profiles_path, class:"d-flex", method: :get do %>
+      <%= text_field_tag :keyword, nil, placeholder: "Cuisine", class:"form-tag"%>
+      <%= submit_tag "Private Chef", class: "btn btn-ghost" %>
+    <% end %>
   </div>
 </div>
 
