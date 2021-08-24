@@ -1,0 +1,12 @@
+<% user = User.find(@chef_profile.user_id) %>
+<header>
+  <h1><%= user.first_name %> <%= user.last_name %></h1>
+</header>
+<dl>
+  <dt>Cuisine</dt>
+  <dd><%= @chef_profile.cuisine %></dd>
+  <dt>Location</dt>
+  <dd><%= @chef_profile.location %></dd>
+</dl>
+<%= link_to 'back to all chefs',  chef_profiles_path %>
+<%= link_to 'delete chef profile',  chef_profile_path, method: :delete %>

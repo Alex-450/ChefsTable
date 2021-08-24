@@ -1,0 +1,13 @@
+<header>
+  <h1>Chefs profiles</h1>
+</header>
+<ul>
+  <% @chef_profiles.each do |chef_profile| %>
+    <% user = User.find(chef_profile.user_id) %>
+    <li>
+      <%= link_to chef_profile_path(chef_profile) do %>
+        <%= user.first_name %> <%= user.last_name%>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
