@@ -19,6 +19,11 @@
 .navbar-light .navbar-nav .nav-link {
   color: white;
   font-size: 18px;
+
+  &:hover {
+  border-bottom: white solid 1px;
+  color: white;
+  }
 }
 
 i {
