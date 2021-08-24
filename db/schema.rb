@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_171533) do
+ActiveRecord::Schema.define(version: 2021_08_24_125414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2021_08_23_171533) do
     t.date "booking_date"
     t.bigint "user_id", null: false
     t.bigint "chef_profile_id", null: false
-    t.boolean "accepted"
     t.string "cuisine"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status", default: "pending"
     t.index ["chef_profile_id"], name: "index_bookings_on_chef_profile_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

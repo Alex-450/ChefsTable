@@ -5,19 +5,16 @@ class BookingsController < ApplicationController
 
   def new
     @chef_profile = ChefProfile.find(params[:chef_profile_id])
-    @user = current_user
     @booking = Booking.new
     authorize @booking
   end
 
   def create
     @chef_profile = ChefProfile.find(params[:chef_profile_id])
-    @user = current_user
     @booking = Booking.new(booking_params)
-    @booking.user_id = @user.id
-    @booking.chef_profile_id = @chef_profile.id
+    @booking.user = current_user
+    @booking.chef_profile = @chef_profile
     authorize @booking
-    raise
     if @booking.save
       redirect_to chef_profile_path(@chef_profile), notice: "Booking complete"
     else
@@ -28,6 +25,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :chef_profile_id, :location, :cuisine, :accepted, :booking_date)
+    params.require(:booking).permit(:user_id, :chef_profile_id, :location, :cuisine, :booking_date)
   end
 end

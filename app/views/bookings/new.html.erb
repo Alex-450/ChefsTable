@@ -3,8 +3,8 @@
     <div class="col-sm-12 col-md-6">
       <%= simple_form_for [@chef_profile, @booking] do |f| %>
       <%= f.input :booking_date %>
-      <%= f.input :cuisine %>
-      <%= f.input :location %>
+      <%= f.input :cuisine, collection: [@chef_profile.cuisine] %>
+      <%= f.input :location, collection: [@chef_profile.location] %>
       <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
