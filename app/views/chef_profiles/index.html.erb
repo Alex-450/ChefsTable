@@ -3,8 +3,9 @@
     <h1>Chefs Profiles</h1>
   </div>
 </header>
+
 <main class="container mt-5">
-  <ul class="preview list-cards">
+  <ul class="preview">
     <% @chef_profiles.each do |chef_profile| %>
       <% user = User.find(chef_profile.user_id) %>
       <li class="card-preview">
@@ -14,8 +15,8 @@
         <% end %>
       </li>
     <% end %>
-    <li class="card-preview add-list">
-      <%= link_to 'add new profile', new_chef_profile_path %>
-    </li>
   </ul>
+  <div class="btn btn-primary">
+    <%= link_to 'add new profile', new_chef_profile_path %>
+  </div>
 </main>
