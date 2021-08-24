@@ -3,19 +3,22 @@ class ChefProfilesController < ApplicationController
   before_action :set_chef_profile, only: [:show, :destroy]
 
   def index
-    @chef_profiles = ChefProfile.all
+    @chef_profiles = policy_scope(ChefProfile).order(created_at: :desc)
   end
 
   def show
+    authorize @chef_profile
   end
 
   def new
     @chef_profile = ChefProfile.new
+    authorize @chef_profile
   end
 
   def create
     @chef_profile = ChefProfile.create(chef_profile_params)
     @chef_profile.user_id = current_user.id
+    authorize @chef_profile
     if @chef_profile.save
       redirect_to chef_profile_path(@chef_profile)
     else
@@ -24,8 +27,10 @@ class ChefProfilesController < ApplicationController
   end
 
   def destroy
+    authorize @chef_profile
     @chef_profile.destroy
     redirect_to chef_profiles_path
+    authorize @chef_profile
   end
 
   private

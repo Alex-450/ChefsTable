@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
+# Use pundit for specific path auth
+gem 'pundit'
 # Use devise for user auth
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
