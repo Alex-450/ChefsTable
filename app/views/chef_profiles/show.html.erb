@@ -9,4 +9,6 @@
   <dd><%= @chef_profile.location %></dd>
 </dl>
 <%= link_to 'back to all chefs',  chef_profiles_path %>
-<%= link_to 'delete chef profile',  chef_profile_path, method: :delete %>
+<% if policy(@chef_profile).destroy? %>
+  <%= link_to 'delete chef profile',  chef_profile_path, method: :delete %>
+<% end %>
