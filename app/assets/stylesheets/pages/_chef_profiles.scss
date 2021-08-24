@@ -1,0 +1,27 @@
+.list-cards {
+  list-style: none;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+
+  .add-list {
+  background: 4px dashed rgba(0,0,0,0.2);
+  position: relative;
+
+  a {
+    background: none;
+    margin: -4px;
+    color: rgba(0,0,0,0.5);
+    }
+
+  a:before {
+    content:"+";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    text-align: center;
+    font-size: 4.5rem;
+    color: rgba(0,0,0,0.5);
+    font-weight: normal;
+  }
+}
+}

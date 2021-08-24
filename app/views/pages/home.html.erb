@@ -1,10 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
   <div class="container">
     <h1>  <strong>Chef's Table</strong>!</h1>
-    <p>
-      <span id="banner-typed-text"></span>
-      </p>
-    <a class="btn btn-ghost" href="#">Private Chefs</a>
+    <p><span id="banner-typed-text"></span></p>
+    <%= link_to 'Private Chefs', {controller: "chef_profiles", action: "index"}, class: "btn btn-ghost" %>
   </div>
 </div>
 

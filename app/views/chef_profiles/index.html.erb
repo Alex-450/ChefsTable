@@ -1,10 +1,10 @@
 <header class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
   <div class="container">
-    <h1>My Chefs Profiles</h1>
+    <h1>Chefs Profiles</h1>
   </div>
 </header>
 <main class="container mt-5">
-  <ul class="preview">
+  <ul class="preview list-cards">
     <% @chef_profiles.each do |chef_profile| %>
       <% user = User.find(chef_profile.user_id) %>
       <li class="card-preview">
@@ -14,7 +14,7 @@
         <% end %>
       </li>
     <% end %>
-    <li class="add-list">
+    <li class="card-preview add-list">
       <%= link_to 'add new profile', new_chef_profile_path %>
     </li>
   </ul>
