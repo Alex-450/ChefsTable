@@ -16,10 +16,13 @@
       <% end %>
         <div class="n-ppost-name">
           <div>
-            <p class="txt"><%= user.first_name %>  </p>
-            <p class="txt"><%#= user.chef_profile.cuisines %> </p>
-            <p class="txt"><%= user.chef_profile.location %> </p>
-            <p class="txt"><%= user.chef_profile.location %> </p>
+            <p class="txt"><strong>Name: </strong><%= user.first_name %></p>
+            <p class="txt"><%#= user.chef_profile.cuisines %>
+              <% user.chef_profile.cuisines.each do |f|%>
+              <%= f %>
+              <% end %>
+            </p>
+            <p class="txt"><strong>Location: </strong><%= user.chef_profile.location %> </p>
             <%= link_to "See more", chef_profile_path(chef_profile), class:"btn btn-submit" %>
           </div>
         </div>
