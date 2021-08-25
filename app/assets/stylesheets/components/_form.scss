@@ -1,3 +1,11 @@
+.form-container {
+  background-image: asset_url('form-background.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
 .form-background {
-  background-color: red;
+  background-color: rgba(black, 0.5) !important;
+  color: white;
+  border-radius: 10px !important;
 }
