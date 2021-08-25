@@ -24,6 +24,36 @@
 }
 
 .btn-submit:hover {
-  opacity: 0.9;
-  color: #fff;
+  background-color: #fff;
+  color: black;
+}
+
+.btn-submit-secondary {
+  color: rgb(80, 80, 255);
+  border: 1px solid rgb(80, 80, 255);
+  padding: 8px 60px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-submit-secondary:hover {
+  color: white;
+  background-color: rgb(80, 80, 255);
+}
+
+.btn-submit-info {
+  color: rgb(252, 206, 120);
+  border: 1px solid rgb(252, 206, 120);
+  padding: 8px 60px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-submit-info:hover {
+  color: black;
+  background-color: rgb(252, 206, 120);
 }
