@@ -1,3 +1,28 @@
-.main-container {
+.chef-prof-detail {
   padding-top: 100px;
+  background-color: #333;
+
+  .container {
+    background-color: white;
+    padding: 16px;
+  }
+
+  .chef-pic img {
+    display: block;
+    width: 100%;
+  }
+
+  .chef-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .chef-buttons {
+    display: flex;
+    flex-direction: column;
+    a {
+      margin-bottom: 16px;
+    }
+  }
 }
