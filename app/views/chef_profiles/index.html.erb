@@ -23,10 +23,10 @@
               <% end %>
             </p>
             <p class="txt"><strong>Location: </strong><%= user.chef_profile.location %> </p>
+            <%= link_to "See more", chef_profile_path(chef_profile), class:"btn btn-submit" %>
           </div>
 
         </div>
-            <%= link_to "See more", chef_profile_path(chef_profile), class:"btn btn-submit" %>
 
       </div>
     <% end %>
