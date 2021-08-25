@@ -12,6 +12,7 @@ class ChefProfilesController < ApplicationController
 
   def new
     @chef_profile = ChefProfile.new
+    @cuisines = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese']
     authorize @chef_profile
   end
 
