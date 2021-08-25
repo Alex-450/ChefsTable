@@ -7,8 +7,11 @@
         <img src="<%= cl_image_path @chef_profile.photo.key, width: 150, crop: :fill %>" alt="picture of chef">
       </div>
       <dl>
-        <dt>Cuisine</dt>
-        <dd><%= @chef_profile.cuisines %></dd>
+        <dt>Cuisines</dt>
+          <dd>
+            <% @chef_profile.cuisines.each do |cuisine| %></dd>
+              <span class="badge badge-pill badge-success"><%= cuisine %></span>
+            <% end %>
         <dt>Location</dt>
         <dd><%= @chef_profile.location %></dd>
       </dl>

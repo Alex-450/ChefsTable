@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
 
   def new
     @chef_profile = ChefProfile.find(params[:chef_profile_id])
+    @cuisines = @chef_profile.cuisines
     @booking = Booking.new
     authorize @booking
   end
