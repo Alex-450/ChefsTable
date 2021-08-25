@@ -1,25 +1,28 @@
 <% user = User.find(@chef_profile.user_id) %>
-<div class="container mb-3 main-container">
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6">
-      <div>
-        <h1><%= user.first_name %> <%= user.last_name %></h1>
-        <img src="<%= cl_image_path @chef_profile.photo.key, width: 150, crop: :fill %>" alt="picture of chef">
+<div class="chef-prof-detail">
+  <div class="container mb-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 chef-pic">
+        <img src="<%= cl_image_path @chef_profile.photo.key, width: 450, crop: :fill %>" alt="picture of chef">
       </div>
-      <dl>
-        <dt>Cuisines</dt>
-          <dd>
-            <% @chef_profile.cuisines.each do |cuisine| %></dd>
-              <span class="badge badge-pill badge-success"><%= cuisine %></span>
-            <% end %>
-        <dt>Location</dt>
-        <dd><%= @chef_profile.location %></dd>
-      </dl>
-      <div>
-        <p><%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-primary' %></p>
-        <p class="btn btn-secondary btn-sm"><%= link_to 'back to chef profiles',  chef_profiles_path %></p>
+      <div class="col-sm-12 col-md-6 chef-info">
+        <h1><%= user.first_name %> <%= user.last_name %></h1>
+        <dl>
+          <dt>Cuisines</dt>
+            <dd>
+              <% @chef_profile.cuisines.each do |cuisine| %></dd>
+                <span class="badge badge-pill badge-success"><%= cuisine %></span>
+              <% end %>
+            </dd>
+          <dt>Location</dt>
+            <dd class="badge badge-pill badge-success"><%= @chef_profile.location %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-12 col-md-3 chef-buttons">
+        <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'back to chef profiles', chef_profiles_path, class: 'btn btn-secondary btn-sm' %>
         <% if policy(@chef_profile).destroy? %>
-          <p class="btn btn-danger btn-sm"><%= link_to 'delete chef profile',  chef_profile_path, method: :delete %></p>
+          <%= link_to 'delete chef profile', chef_profile_path, method: :delete, class: 'btn btn-danger btn-sm' %>
         <% end %>
       </div>
     </div>
