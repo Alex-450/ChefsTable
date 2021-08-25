@@ -24,6 +24,7 @@ class ChefProfilesController < ApplicationController
     if @chef_profile.save
       redirect_to chef_profile_path(@chef_profile)
     else
+      @cuisines = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese', 'Russian']
       render :new
     end
   end
