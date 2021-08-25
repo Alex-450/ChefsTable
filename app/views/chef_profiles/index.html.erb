@@ -1,6 +1,7 @@
 <header class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
-  <div class="container">
+  <div class="container padding-200">
     <h1>Chefs Profiles</h1>
+     <p>Find and book chefs to cook at your home!<p>
   </div>
 </header>
 
@@ -21,8 +22,8 @@
       </div>
     <% end %>
   </ul>
-  <div class="btn btn-primary">
+  <p class="btn btn-primary">
     <%= link_to 'add new profile', new_chef_profile_path %>
-  </div>
+  </p>
 </main>
 <img src="<%= asset_path('banner.jpg')%>" alt="" class="img-index">
