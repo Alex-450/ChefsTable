@@ -1,23 +1,24 @@
-<div class="container mb-3 padding-200">
+<% user = User.find(@chef_profile.user_id) %>
+<div class="container mb-3 main-container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 text-center">
-      <% user = User.find(@chef_profile.user_id) %>
-      <main>
-        <header>
-          <h1><%= user.first_name %> <%= user.last_name %></h1>
-        </header>
-        <dl>
-          <dt>Cuisine</dt>
-          <dd><%= @chef_profile.cuisine %></dd>
-          <dt>Location</dt>
-          <dd><%= @chef_profile.location %></dd>
-        </dl>
+    <div class="col-sm-12 col-md-6">
+      <div>
+        <h1><%= user.first_name %> <%= user.last_name %></h1>
+        <img src="<%= cl_image_path @chef_profile.photo.key, width: 150, crop: :fill %>" alt="picture of chef">
+      </div>
+      <dl>
+        <dt>Cuisine</dt>
+        <dd><%= @chef_profile.cuisine %></dd>
+        <dt>Location</dt>
+        <dd><%= @chef_profile.location %></dd>
+      </dl>
+      <div>
         <p><%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-primary' %></p>
         <p class="btn btn-secondary btn-sm"><%= link_to 'back to chef profiles',  chef_profiles_path %></p>
         <% if policy(@chef_profile).destroy? %>
           <p class="btn btn-danger btn-sm"><%= link_to 'delete chef profile',  chef_profile_path, method: :delete %></p>
         <% end %>
-      </main>
-     </div>
+      </div>
+    </div>
   </div>
 </div>
