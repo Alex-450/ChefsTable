@@ -54,6 +54,23 @@
 }
 
 .btn-submit-info:hover {
-  color: black;
+  color: grey;
   background-color: rgb(252, 206, 120);
+}
+
+.btn-submit-danger {
+  background-color: white;
+  color: rgb(250, 54, 54);
+  border: 1px rgb(250, 54, 54) solid;
+  padding: 8px 60px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-submit-danger:hover {
+  background-color: rgb(250, 54, 54);
+  color:white;
+  border: 1px rgb(250, 54, 54) solid;
 }

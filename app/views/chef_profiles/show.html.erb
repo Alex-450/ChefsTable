@@ -19,10 +19,10 @@
         </dl>
       </div>
       <div class="col-sm-12 col-md-3 chef-buttons">
-        <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-primary btn-lg' %>
-        <%= link_to 'back to chef profiles', chef_profiles_path, class: 'btn btn-secondary btn-sm' %>
+        <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-submit-secondary' %>
+        <%= link_to 'back to chef profiles', chef_profiles_path, class: 'btn btn-submit-info btn-sm' %>
         <% if policy(@chef_profile).destroy? %>
-          <%= link_to 'delete chef profile', chef_profile_path, method: :delete, class: 'btn btn-danger btn-sm' %>
+          <%= link_to 'delete chef profile', chef_profile_path, method: :delete, class: 'btn btn-submit-danger btn-sm' %>
         <% end %>
       </div>
     </div>
