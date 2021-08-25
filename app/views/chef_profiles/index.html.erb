@@ -5,18 +5,24 @@
 </header>
 
 <main class="container mt-5">
-  <ul class="preview">
-    <% @chef_profiles.each do |chef_profile| %>
+  <ul class="chef-profiles">
+  <% @chef_profiles.each do |chef_profile| %>
       <% user = User.find(chef_profile.user_id) %>
-      <li class="card-preview">
-        <img src="<%= asset_path('banner.jpg')%>" />
-        <%= link_to chef_profile_path(chef_profile) do %>
-          <%= user.first_name %> <%= user.last_name%>
-        <% end %>
-      </li>
+      <div class="card card-index" style="background-image: url(<%= cl_image_tag chef_profile.photo.key %>);">
+        <div class="n-ppost-name">
+          <div>
+            <p><%= user.first_name %>  </p>
+            <p><%= user.chef_profile.cuisine %>  </p>
+            <p><%= user.chef_profile.location %>  </p>
+            <p><%= user.chef_profile.location %>  </p>
+            <%= link_to "See more", chef_profile_path(chef_profile), class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </ul>
   <div class="btn btn-primary">
     <%= link_to 'add new profile', new_chef_profile_path %>
   </div>
 </main>
+<img src="<%= asset_path('banner.jpg')%>" alt="" class="img-index">
