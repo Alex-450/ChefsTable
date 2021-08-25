@@ -9,14 +9,18 @@
   <ul class="chef-profiles">
   <% @chef_profiles.each do |chef_profile| %>
       <% user = User.find(chef_profile.user_id) %>
-      <div class="card card-index" style="background-image: url(<%= cl_image_tag chef_profile.photo.key %>);">
+      <% if chef_profile.photo.attached? %>
+        <div class="card card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path chef_profile.photo.key, height: 300, crop: :fill %>')">
+      <% else %>
+        <div class="card card-index">
+      <% end %>
         <div class="n-ppost-name">
           <div>
-            <p><%= user.first_name %>  </p>
-            <p><%= user.chef_profile.cuisine %>  </p>
-            <p><%= user.chef_profile.location %>  </p>
-            <p><%= user.chef_profile.location %>  </p>
-            <%= link_to "See more", chef_profile_path(chef_profile), class:"btn btn-primary" %>
+            <p class="txt"><%= user.first_name %>  </p>
+            <p class="txt"><%#= user.chef_profile.cuisines %> </p>
+            <p class="txt"><%= user.chef_profile.location %> </p>
+            <p class="txt"><%= user.chef_profile.location %> </p>
+            <%= link_to "See more", chef_profile_path(chef_profile), class:"btn btn-ghost" %>
           </div>
         </div>
       </div>
@@ -26,4 +30,3 @@
     <%= link_to 'add new profile', new_chef_profile_path %>
   </p>
 </main>
-<img src="<%= asset_path('banner.jpg')%>" alt="" class="img-index">
