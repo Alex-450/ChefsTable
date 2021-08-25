@@ -90,3 +90,18 @@
   color:white;
   border: 1px rgb(250, 54, 54) solid;
 }
+
+.btn-submit-hover {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 60px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0;
+}
+
+.btn-submit-hover:hover {
+  background-color: #fff;
+  color: black;
+  opacity: 1;
+}
