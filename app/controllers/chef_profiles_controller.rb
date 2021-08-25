@@ -12,7 +12,7 @@ class ChefProfilesController < ApplicationController
 
   def new
     @chef_profile = ChefProfile.new
-    @cuisines = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese']
+    @cuisines = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese', 'Russian']
     authorize @chef_profile
   end
 
@@ -20,6 +20,7 @@ class ChefProfilesController < ApplicationController
     @chef_profile = ChefProfile.create(chef_profile_params)
     @chef_profile.user_id = current_user.id
     authorize @chef_profile
+    # raise
     if @chef_profile.save
       redirect_to chef_profile_path(@chef_profile)
     else
@@ -41,6 +42,6 @@ class ChefProfilesController < ApplicationController
   end
 
   def chef_profile_params
-    params.require(:chef_profile).permit(:user_id, :cuisine, :location, :photo)
+    params.require(:chef_profile).permit(:user_id, :location, :photo, cuisines: [])
   end
 end

@@ -7,8 +7,11 @@
           <h1><%= user.first_name %> <%= user.last_name %></h1>
         </header>
         <dl>
-          <dt>Cuisine</dt>
-          <dd><%= @chef_profile.cuisine %></dd>
+          <dt>Cuisines</dt>
+          <dd>
+            <% @chef_profile.cuisines.each do |cuisine| %></dd>
+              <span class="badge badge-pill badge-success"><%= cuisine %></span>
+            <% end %>
           <dt>Location</dt>
           <dd><%= @chef_profile.location %></dd>
         </dl>
