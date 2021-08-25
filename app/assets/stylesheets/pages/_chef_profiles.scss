@@ -25,21 +25,3 @@ main {
   width: 100%;
 }
 
-.n-ppost-name {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -15px, 0);
-            transform: translate3d(0, -15px, 0);
-    -webkit-transition: all 150ms linear;
-    -o-transition: all 150ms linear;
-    transition: all 150ms linear;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.card-index:hover  .n-ppost-name {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    display: block;
-}
