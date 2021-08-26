@@ -1,10 +1,19 @@
 <div class="container-fluid padding-200 form-container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8">
-      <% if @bookings.count == 0 && @my_bookings.count == 0 %>
-        <div class="booking-table p-5 text-center rounded">
-          <h2 class="text-white">You don't have any bookings!</h2>
+      <% if @bookings.count == 0 %>
+        <h2 class="text-center text-white">My bookings</h2>
+        <div class="booking-table p-5 text-center rounded mb-5">
+          <h3 class="text-white mb-4">You haven't made any bookings!</h3>
           <%= link_to 'Browse chef profiles', chef_profiles_path, class: 'btn btn-submit' %>
+        </div>
+      <% end %>
+
+      <% if @my_bookings && @my_bookings.count == 0 %>
+        <h2 class="text-center text-white">Bookings for my profile</h2>
+        <div class="booking-table p-5 text-center rounded">
+          <h3 class="text-white mb-4">You haven't received any bookings!</h3>
+          <%= link_to 'Go to your chef profile', chef_profile_path(current_user.chef_profile), class: 'btn btn-submit' %>
         </div>
       <% end %>
       <% if @bookings.count > 0 %>
