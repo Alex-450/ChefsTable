@@ -13,13 +13,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to "Discover chefs", chef_profiles_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
         <% if current_user.chef_profile%>
-          <%= link_to "Chef profile", chef_profile_path(current_user.chef_profile), class: "nav-link" %>
+          <%= link_to "I’m a chef", chef_profile_path(current_user.chef_profile), class: "nav-link" %>
         <% else %>
-          <%= link_to "Chef profile", new_chef_profile_path, class: "nav-link" %>
+          <%= link_to "I’m a chef", new_chef_profile_path, class: "nav-link" %>
         <% end %>
         </li>
         <li class="nav-item">
