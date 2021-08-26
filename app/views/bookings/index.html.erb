@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8">
       <% if @bookings.count == 0 && @my_bookings.count == 0 %>
-        <div class="booking-table p-5 text-center">
+        <div class="booking-table p-5 text-center rounded">
           <h2 class="text-white">You don't have any bookings!</h2>
           <%= link_to 'Browse chef profiles', chef_profiles_path, class: 'btn btn-submit' %>
         </div>
