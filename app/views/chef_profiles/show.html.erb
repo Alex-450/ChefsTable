@@ -29,5 +29,33 @@
         <% end %>
       </div>
     </div>
+
+  <section class="grid-2">
+    <% @chef_profile.reviews.each do |f|%>
+    <div>
+      <div class="testimonial-box">
+        <div class="box-top">
+          <div class="profile">
+              <div class="profile-img">
+                  <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+              </div>
+
+              <div class="name-user">
+                <strong><%= current_user.first_name %></strong>
+              </div>
+            </div>
+          <div class="reviews">
+          <% x = f.rating %>
+          <% x.times do %>
+            <i class="fas fa-star black"></i>
+          <% end %>
+          </div>
+        </div>
+      <div class="client-comment">
+        <p> <%= f.comment %></p>
+      </div>
+    </div>
+    <% end %>
+  </section>
   </div>
 </div>

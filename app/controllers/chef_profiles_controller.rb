@@ -7,6 +7,7 @@ class ChefProfilesController < ApplicationController
   end
 
   def show
+    # @booking = Booking.find(params[:booking_id])
     authorize @chef_profile
   end
 
