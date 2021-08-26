@@ -1,13 +1,17 @@
 <div class="container mb-3 padding-200">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-6">
+      <h2 class="text-center">My bookings</h2>
       <% @bookings.each do |booking| %>
-        <% chef = ChefProfile.find(booking.chef_profile_id) %>
+        <% chef_profile = ChefProfile.find(booking.chef_profile_id) %>
+        <% chef = User.find(chef_profile.user_id) %>
+        <%= chef.first_name %>
+        <%= chef.last_name %>
         <%= booking.booking_date %>
         <%= booking.cuisine %>
         <%= booking.location %>
         <%= booking.status %>
-
+        <%= link_to "View booking", booking_path(booking) %>
       <% end %>
     </div>
   </div>
