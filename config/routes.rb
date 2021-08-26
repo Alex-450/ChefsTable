@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :chef_profiles do
     resources :bookings, only: [:index, :new, :create]
   end
+  resources :bookings, only: [] do
+    resources :reviews, only: [:create, :new]
+  end
+  resources :reviews, only: [:destroy]
 end
