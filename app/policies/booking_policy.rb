@@ -16,4 +16,8 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def update?
+    user.chef_profile.id == record.chef_profile_id
+  end
 end
