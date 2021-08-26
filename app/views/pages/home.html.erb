@@ -5,8 +5,11 @@
       <span id="banner-typed-text"></span>
     </p>
     <%= form_tag chef_profiles_path, class:"d-flex", method: :get do %>
-      <%= text_field_tag :keyword, nil, placeholder: "Cuisine", class:"form-tag"%>
-      <%= submit_tag "Private Chef", class: "btn btn-ghost" %>
+      <%= text_field_tag :keyword, nil, placeholder: "Search by cuisine...", class:"form-tag"%>
+      <%# <%= submit_tag  class: "btn btn-search" %>
+      <button type="submit" class="btn btn-search">
+  Search <%= icon('fas', 'search') %>
+</button>
     <% end %>
   </div>
 </div>
