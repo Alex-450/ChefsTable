@@ -1,6 +1,13 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    @bookings = Booking.where(user_id: current_user)
+    authorize @bookings
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
