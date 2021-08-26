@@ -1,4 +1,5 @@
 class ChefProfile < ApplicationRecord
+  CUISINES = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese', 'Russian']
   belongs_to :user
   has_many :bookings
   has_one_attached :photo
