@@ -25,8 +25,13 @@
         <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-submit-secondary' %>
         <%= link_to 'back to all chefs', chef_profiles_path, class: 'btn btn-submit-info btn-sm' %>
         <% if policy(@chef_profile).destroy? %>
-          <%= link_to 'delete this chef', chef_profile_path, method: :delete, class: 'btn btn-submit-danger btn-sm' %>
+          <%= link_to 'delete my chef profile', chef_profile_path, method: :delete, class: 'btn btn-submit-danger btn-sm', data: { confirm: 'Are you sure you want to delete your chef profile?' } %>
         <% end %>
+        <script>
+          <% flash.each do |name, msg| %>
+            alert('<%= msg %>');
+          <% end %>
+        </script>
       </div>
     </div>
 

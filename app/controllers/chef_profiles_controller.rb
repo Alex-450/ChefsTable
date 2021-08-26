@@ -34,9 +34,13 @@ class ChefProfilesController < ApplicationController
 
   def destroy
     authorize @chef_profile
-    @chef_profile.destroy
-    redirect_to chef_profiles_path
-    authorize @chef_profile
+    if Booking.exists?(chef_profile_id: @chef_profile.id)
+      redirect_to chef_profile_path(@chef_profile), alert: 'You cannot delete your chef profile with active bookings!'
+    else
+      @chef_profile.destroy
+      redirect_to chef_profiles_path
+    end
+    # authorize @chef_profile
   end
 
   private
