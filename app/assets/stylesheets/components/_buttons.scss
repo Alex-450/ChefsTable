@@ -137,3 +137,34 @@
   color: black;
   opacity: 1;
 }
+
+.btn-submit-green {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 60px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-submit-green:hover {
+  color: rgb(60, 212, 60);
+  background-color: white;
+}
+
+.btn-submit-red {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 60px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+.btn-submit-red:hover {
+  background-color: white;
+  color: red;
+}
