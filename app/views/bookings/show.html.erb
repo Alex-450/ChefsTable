@@ -1,26 +1,27 @@
 <% chef_profile = ChefProfile.find(@booking.chef_profile_id) %>
 <% chef = User.find(chef_profile.user_id) %>
-<div class="container-fluid px-0 pb-5 bg-light">
+<div class="container-fluid px-0 bg-dark">
   <div class="jumbotron-fluid m-0 p-0 d-flex align-items-center justify-content-center" style="background-image: url('<%= cl_image_path chef_profile.photo.key, crop: :fill %>'); height: 50vh; background-size: cover;">
     <div class="text-center booking-title shadow">
       <h1 class="text-white">Chef: <%= chef.first_name %> <%= chef.last_name %></h1>
       <h5 class="text-white"><%= @booking.booking_date %></h5>
       </div>
   </div>
-  <div class="row justify-content-center pt-5">
+  <div class="row justify-content-center py-5 form-background">
     <div class="col-sm-6 text-center">
       <h2>Booking details:</h2>
       <p> <strong>Cuisine:</strong> <%= @booking.cuisine %></p>
       <p> <strong>Location:</strong> <%= @booking.location %></p>
       <p> <strong>Booking status:</strong> <%= @booking.status %></p>
       <% if @my_booking && @booking.status == "pending" %>
-        <p><%= link_to "confirm booking", booking_path(@booking, status: "accept"), method: :patch, class: 'btn btn-submit-secondary mb-3' %></p>
-        <p><%= link_to "reject booking", booking_path(@booking, status: "reject"), method: :patch, class: 'btn btn-submit-danger' %></p>
+        <p><%= link_to "confirm booking", booking_path(@booking, status: "accept"), method: :patch, class: 'btn btn-submit-green mb-3' %></p>
+        <p><%= link_to "reject booking", booking_path(@booking, status: "reject"), method: :patch, class: 'btn btn-submit-red' %></p>
       <% end %>
+      <% if @booking.status == "accepted" %>
+        <%= link_to "Add a review", new_booking_review_path(@booking), class: 'btn btn-submit' %>
+        <% end %>
     </div>
   </div>
     </div>
   </div>
 </div>
-
-<%= link_to "Add a review", new_booking_review_path(@booking) %>
