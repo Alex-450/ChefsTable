@@ -1,13 +1,20 @@
-<div class="container padding-200">
-  <div class="row">
-    <div class="col">
-        <% chef_profile = ChefProfile.find(@booking.chef_profile_id) %>
-        <% chef = User.find(chef_profile.user_id) %>
-        <img src="<%= cl_image_path chef_profile.photo.key, width: 200, height: 300, crop: :fill %>" alt="picture of chef">
-        <%= @booking.booking_date %>
-        <%= @booking.cuisine %>
-        <%= @booking.location %>
-        <%= @booking.status %>
+<% chef_profile = ChefProfile.find(@booking.chef_profile_id) %>
+<% chef = User.find(chef_profile.user_id) %>
+<div class="container-fluid px-0 pb-5 bg-light">
+  <div class="jumbotron-fluid m-0 p-0 d-flex align-items-center justify-content-center" style="background-image: url('<%= cl_image_path chef_profile.photo.key, crop: :fill %>'); height: 50vh; background-size: cover;">
+    <div class="text-center booking-title shadow">
+      <h1 class="text-white">Chef: <%= chef.first_name %> <%= chef.last_name %></h1>
+      <h5 class="text-white"><%= @booking.booking_date %></h5>
+      </div>
+  </div>
+  <div class="row justify-content-center pt-5">
+    <div class="col-sm-6 text-center">
+      <h2>Booking details:</h2>
+      <p> <strong>Cuisine:</strong> <%= @booking.cuisine %></p>
+      <p> <strong>Location:</strong> <%= @booking.location %></p>
+      <p> <strong>Booking status:</strong> <%= @booking.status %></p>
+    </div>
+  </div>
     </div>
   </div>
 </div>
