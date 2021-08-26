@@ -3,9 +3,14 @@
     <div class="col-sm-12 col-md-6">
       <div class="bg-white rounded p-3 shadow form-background">
         <h3>Create a new chef profile</h3>
+
         <%= simple_form_for @chef_profile do |f| %>
-          <%= f.input :cuisines, collection: @cuisines, input_html: { multiple: true }, include_hidden: false, prompt: 'Select a cuisine', input_html: { class: 'select2' } %>
           <%= f.input :location, placeholder: 'Tokyo' %>
+          <% ChefProfile::CUISINES.each do |cuisine| %>
+            <% id = "cuisine-".concat(cuisine.parameterize) %>
+            <%= check_box_tag id %>
+            <label for="<%= id %>"><%= cuisine %></label>
+          <% end %>
           <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-submit' %>
         <% end %>
