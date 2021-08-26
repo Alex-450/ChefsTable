@@ -12,15 +12,36 @@
             </tr>
           </thead>
           <tbody>
-      <% @bookings.each do |booking| %>
-        <% chef_profile = ChefProfile.find(booking.chef_profile_id) %>
-        <% chef = User.find(chef_profile.user_id) %>
+            <% @bookings.each do |booking| %>
+              <% chef_profile = ChefProfile.find(booking.chef_profile_id) %>
+              <% chef = User.find(chef_profile.user_id) %>
+              <tr>
+                <td><%= booking.booking_date %></td>
+                <td><%= booking.location %></td>
+                <td><%= booking.status %></td>
+                <td><%= link_to "View booking", booking_path(booking), class: 'btn btn-submit-small' %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+      <h2 class="text-center text-white">Bookings for me</h2>
+      <table class="table booking-table">
+          <thead>
             <tr>
-              <td><%= booking.booking_date %></td>
-              <td><%= booking.location %></td>
-              <td><%= booking.status %></td>
-              <td><%= link_to "View booking", booking_path(booking), class: 'btn btn-submit-small' %></td>
+              <th scope="col">Date</th>
+              <th scope="col">Location</th>
+              <th scope="col">Status</th>
+              <th scope="col">Options</th>
             </tr>
+          </thead>
+          <tbody>
+      <% @my_bookings.each do |my_booking| %>
+        <tr>
+          <td><%= my_booking.booking_date %></td>
+          <td><%= my_booking.location %></td>
+          <td><%= my_booking.status %></td>
+          <td><%= link_to "View booking", booking_path(my_booking), class: 'btn btn-submit-small' %></td>
+        </tr>
       <% end %>
       </tbody>
       </table>

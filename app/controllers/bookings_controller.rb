@@ -2,6 +2,8 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     @bookings = Booking.where(user_id: current_user)
+    user_profiles = ChefProfile.where(user_id: current_user)
+    @my_bookings = Booking.where(chef_profile_id: user_profiles)
     authorize @bookings
   end
 
