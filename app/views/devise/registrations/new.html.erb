@@ -1,6 +1,6 @@
-<div class="container mb-3 padding-200">
+<div class="container-fluid form-container padding-200">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-8 col-md-6 form-background p-3">
       <h2>Sign up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -24,15 +24,10 @@
                       input_html: { autocomplete: "new-password" } %>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: 'btn btn-primary' %>
+          <%= f.button :submit, "Sign up", class: 'btn btn-submit' %>
         </div>
       <% end %>
 
-    </div>
-  </div>
-  <div class="row justify-content-center my-3">
-    <div class="col-sm-12 col-md-6">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
