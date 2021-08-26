@@ -1,0 +1,13 @@
+<div class="container padding-200">
+  <div class="row">
+    <div class="col">
+        <% chef_profile = ChefProfile.find(@booking.chef_profile_id) %>
+        <% chef = User.find(chef_profile.user_id) %>
+        <img src="<%= cl_image_path chef_profile.photo.key, width: 200, height: 300, crop: :fill %>" alt="picture of chef">
+        <%= @booking.booking_date %>
+        <%= @booking.cuisine %>
+        <%= @booking.location %>
+        <%= @booking.status %>
+    </div>
+  </div>
+</div>
