@@ -19,6 +19,13 @@ main {
   // grid-gap: 0;
   // justify-items: center;
   // grid-template-rows: auto auto;
+
+  .btn {
+    opacity: 0;
+  }
+  a:hover .btn {
+    opacity: 1;
+  }
 }
 
 .img-index {
