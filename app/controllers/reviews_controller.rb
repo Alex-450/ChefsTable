@@ -12,13 +12,19 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     authorize @booking
-
     if @review.save
       # redirect_to booking_path(@booking)
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @booking = @review.booking
+    @review.destroy
+    redirect_to root_path
   end
 
   private
