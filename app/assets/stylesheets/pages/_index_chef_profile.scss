@@ -16,7 +16,7 @@ main {
 .chef-profiles {
   display: grid;
   grid-template-columns: 1fr minmax(200px, 1fr);
-  grid-gap: 40px;
+  grid-gap: 0;
   justify-items: center;
   grid-template-rows: auto auto;
 }
@@ -24,4 +24,3 @@ main {
 .img-index {
   width: 100%;
 }
-
