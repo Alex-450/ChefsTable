@@ -6,10 +6,12 @@
     </p>
     <%= form_tag chef_profiles_path, class:"d-flex", method: :get do %>
       <%= text_field_tag :keyword, nil, placeholder: "Cuisine", class:"form-tag"%>
-      <%= submit_tag "Private Chef", class: "btn btn-ghost" %>
+      <%= submit_tag "search 🔍", class: "btn btn-ghost" %>
+
     <% end %>
   </div>
 </div>
+<i class="fas fa-search"></i>
 
 <div class="container mt-5">
   <h2>All kind of cuisines</h2>
