@@ -1,12 +1,15 @@
-<div class="container mb-3 padding-200">
+<div class="container-fluid padding-200 form-container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6">
-      <%= simple_form_for [@chef_profile, @booking] do |f| %>
-      <%= f.input :booking_date %>
-      <%= f.input :cuisine, collection: @chef_profile.cuisines %>
-      <%= f.input :location, collection: [@chef_profile.location] %>
-      <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+    <div class="col-sm-8 col-md-6">
+      <div class="form-background rounded p-3 shadow">
+        <h2 class="text-center">Book a chef</h2>
+        <%= simple_form_for [@chef_profile, @booking] do |f| %>
+        <%= f.input :booking_date %>
+        <%= f.input :cuisine, collection: @chef_profile.cuisines %>
+        <%= f.input :location, collection: [@chef_profile.location] %>
+        <%= f.submit class: 'btn btn-submit' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

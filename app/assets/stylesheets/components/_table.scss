@@ -1,4 +1,7 @@
 .booking-table {
-  color: white;
-  background-color: rgba(black, 0.5);
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border: 1px solid white;
+    color: white;
 }

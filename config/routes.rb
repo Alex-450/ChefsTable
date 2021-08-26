@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:destroy]
   resources :bookings, only: [:index, :show]
+  patch 'bookings/:id', to: "bookings#update"
 end

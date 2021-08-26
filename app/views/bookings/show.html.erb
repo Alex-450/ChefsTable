@@ -13,6 +13,10 @@
       <p> <strong>Cuisine:</strong> <%= @booking.cuisine %></p>
       <p> <strong>Location:</strong> <%= @booking.location %></p>
       <p> <strong>Booking status:</strong> <%= @booking.status %></p>
+      <% if @my_booking && @booking.status == "pending" %>
+        <%= link_to "confirm booking", booking_path(@booking, status: "accept"), method: :patch, class: 'btn btn-submit-secondary mb-3' %>
+        <%= link_to "reject booking", booking_path(@booking, status: "reject"), method: :patch, class: 'btn btn-submit-danger' %>
+      <% end %>
     </div>
   </div>
     </div>
