@@ -1,7 +1,13 @@
 <div class="footer">
   <ul class="footer-links">
-    <li><%= link_to "My profile →", "#" %></li>
+    <li>
+      <% if current_user.chef_profile%>
+          <%= link_to "I’m a chef →", chef_profile_path(current_user.chef_profile), class: "nav-link" %>
+        <% else %>
+          <%= link_to "I’m a chef →", new_chef_profile_path, class: "nav-link" %>
+        <% end %>
+    </li>
     <li><%= link_to "Chef profiles →", chef_profiles_path %></li>
-    <li><%= link_to "My bookings →", "#" %></li>
+    <li><%= link_to "My bookings →", bookings_path %></li>
   </ul>
 </div>
