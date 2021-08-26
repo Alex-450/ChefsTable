@@ -1,4 +1,4 @@
-<header class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
+<header style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
   <div class="container padding-200">
     <h1>Chefs Profiles</h1>
      <p>Find and book chefs to cook at your home!<p>
@@ -6,27 +6,31 @@
 </header>
 
 <main class="container mt-5 chef-profiles">
+  <div class="row">
   <% @chef_profiles.each do |chef_profile| %>
     <% user = User.find(chef_profile.user_id) %>
-    <% if chef_profile.photo.attached? %>
-      <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path chef_profile.photo.key, width: 300, height: 400, crop: :fill %>" alt="picture of chef"')">
-    <% else %>
-      <div class="card-index">
-    <% end %>
-      <div class="n-ppost-name text-center">
-        <div>
-          <p class="txt"><strong>Name: </strong><%= user.first_name %></p>
-            <p class="txt"><strong>Cuisines: </strong>
-            <% chef_profile.cuisines.each do |f|%>
-              <%= "| #{f} |" %>
-            <% end %>
-            </p>
-          <p class="txt"><strong>Location: </strong><%= chef_profile.location %> </p>
-        </div>
+      <div class="col-6 p-0">
+        <%= link_to chef_profile_path(chef_profile) do %>
+          <% if chef_profile.photo.attached? %>
+            <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path chef_profile.photo.key, width: 300, height: 400, crop: :fill %>" alt="picture of chef"')">
+          <% else %>
+            <div class="card-index">
+          <% end %>
+          <div class="n-ppost-name text-center">
+            <div>
+              <p class="txt"><strong>Name: </strong><%= user.first_name %></p>
+                <p class="txt"><strong>Cuisines: </strong>
+                <% chef_profile.cuisines.each do |f|%>
+                  <%= "| #{f} |" %>
+                <% end %>
+                </p>
+              <p class="txt"><strong>Location: </strong><%= chef_profile.location %> </p>
+            </div>
+          </div>
+          <p class="btn btn-submit">See more</p>
+          </div>
+        <% end %>
       </div>
-        <div>
-          <p>See more</p>
-        </div class="btn btn-submit-hover">
-    </div>
   <% end %>
+  </div>
 </main>

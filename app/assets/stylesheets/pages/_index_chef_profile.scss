@@ -14,11 +14,18 @@ main {
 }
 
 .chef-profiles {
-  display: grid;
-  grid-template-columns: 1fr minmax(200px, 1fr);
-  grid-gap: 0;
-  justify-items: center;
-  grid-template-rows: auto auto;
+  // display: grid;
+  // grid-template-columns: 1fr minmax(200px, 1fr);
+  // grid-gap: 0;
+  // justify-items: center;
+  // grid-template-rows: auto auto;
+
+  .btn {
+    opacity: 0;
+  }
+  a:hover .btn {
+    opacity: 1;
+  }
 }
 
 .img-index {
