@@ -13,7 +13,6 @@ class ChefProfilesController < ApplicationController
 
   def new
     @chef_profile = ChefProfile.new
-    @cuisines = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese', 'Russian']
     authorize @chef_profile
   end
 
@@ -21,11 +20,14 @@ class ChefProfilesController < ApplicationController
     @chef_profile = ChefProfile.create(chef_profile_params)
     @chef_profile.user_id = current_user.id
     authorize @chef_profile
-    # raise
+    @chef_profile.cuisines = []
+    ChefProfile::CUISINES.each do |cuisine|
+      id = "cuisine-".concat(cuisine.parameterize)
+      @chef_profile.cuisines.push(cuisine) if params.has_key?(id)
+    end
     if @chef_profile.save
       redirect_to chef_profile_path(@chef_profile)
     else
-      @cuisines = ['Italian', 'French', 'Vegan', 'Indonesian', 'Japanese', 'Chinese', 'Russian']
       render :new
     end
   end

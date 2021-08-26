@@ -8,6 +8,13 @@
   justify-content: center;
 }
 
+.footer-links {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .footer-links a {
   color: black;
   display: flex;
