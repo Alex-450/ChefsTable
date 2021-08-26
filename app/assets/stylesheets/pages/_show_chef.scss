@@ -1,11 +1,12 @@
 .chef-prof-detail {
   padding-top: 100px;
+  padding-bottom: 100px;
   background-color: #333;
 
   .container {
     background-color: white;
     padding: 16px;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .chef-pic img {
@@ -16,7 +17,11 @@
   .chef-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+  }
+
+  .chef-description {
+    // font-style: italic;
   }
 
   .chef-buttons {
@@ -25,5 +30,18 @@
     a {
       margin-bottom: 16px;
     }
+  }
+
+  dt {
+    margin: 16px 0;
+  }
+
+  dd, dd span {
+    font-size: 1rem;
+  }
+
+  dd span {
+    display: inline-block;
+    margin-bottom: 8px;
   }
 }
