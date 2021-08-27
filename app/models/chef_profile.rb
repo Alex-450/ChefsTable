@@ -5,4 +5,11 @@ class ChefProfile < ApplicationRecord
   has_one_attached :photo
   validates_presence_of :cuisines, :location, :photo, :user_id
   has_many :reviews, through: :bookings
+
+  include PgSearch::Model
+  pg_search_scope :search_by_cuisines_and_location_and_description,
+    against: [ :cuisines, :location, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

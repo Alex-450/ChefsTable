@@ -4,7 +4,13 @@ class ChefProfilesController < ApplicationController
 
   def index
     @chef_profiles = policy_scope(ChefProfile).order(created_at: :desc)
+    if params[:query].present?
+      @chef_profiles = ChefProfile.search_by_cuisines_and_location_and_description(params[:query])
+    else
+      @chef_profiles = ChefProfile.all
+    end
   end
+
 
   def show
     # @booking = Booking.find(params[:booking_id])

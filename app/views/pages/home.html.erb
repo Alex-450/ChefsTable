@@ -5,7 +5,7 @@
       <span id="banner-typed-text"></span>
     </p>
     <%= form_tag chef_profiles_path, class:"d-flex", method: :get do %>
-      <%= text_field_tag :keyword, nil, placeholder: "Search by cuisine...", class:"form-tag"%>
+      <%= text_field_tag :query, nil, placeholder: "Search...", class:"form-tag"%>
       <button type="submit" class="btn btn-search">
         Search <%= icon('fas', 'search') %>
     </button>
