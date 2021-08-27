@@ -31,3 +31,17 @@ main {
 .img-index {
   width: 100%;
 }
+
+header {
+  background-size: cover;
+  background-position: bottom;
+
+  h1, p {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    padding-bottom: 20px;
+  }
+}
