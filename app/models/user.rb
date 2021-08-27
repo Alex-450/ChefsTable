@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   has_one :chef_profile
   has_many :bookings
+  has_one_attached :photo
+
+
   # has_many :reviews
 end
