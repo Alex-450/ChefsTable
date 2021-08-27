@@ -6,6 +6,8 @@
         <%= simple_form_for [@chef_profile, @booking] do |f| %>
         <%= f.input :booking_date %>
         <%= f.input :cuisine, collection: @chef_profile.cuisines %>
+        <%= f.input :number_of_people %>
+        <%= f.input :number_of_courses %>
         <%= f.input :location, collection: [@chef_profile.location] %>
         <%= f.submit class: 'btn btn-submit' %>
         <% end %>
