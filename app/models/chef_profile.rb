@@ -12,4 +12,9 @@ class ChefProfile < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  pg_search_scope :search_by_cuisines,
+    against: :cuisines,
+    using: {
+      tsearch: { prefix: true }
+    }
 end
