@@ -12,6 +12,8 @@
       <h2>Booking details:</h2>
       <p> <strong>Cuisine:</strong> <%= @booking.cuisine %></p>
       <p> <strong>Location:</strong> <%= @booking.location %></p>
+      <p> <strong>Number of people:</strong> <%= @booking.number_of_people %></p>
+      <p> <strong>Number of courses:</strong> <%= @booking.number_of_courses %></p>
       <p> <strong>Booking status:</strong> <%= @booking.status %></p>
       <% if @my_booking && @booking.status == "pending" %>
         <p><%= link_to "confirm booking", booking_path(@booking, status: "accept"), method: :patch, class: 'btn btn-submit-green mb-3' %></p>
