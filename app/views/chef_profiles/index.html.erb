@@ -5,7 +5,7 @@
   </div>
 </header>
 
-<main class="container mt-5 chef-profiles">
+<main class="container mt-5 chef-profiles mb-5">
   <div class="row">
   <% @chef_profiles.each do |chef_profile| %>
     <% user = User.find(chef_profile.user_id) %>
@@ -19,6 +19,7 @@
           <div class="n-ppost-name text-center">
             <div>
               <p class="txt"><strong>Name: </strong><%= user.first_name %></p>
+              <p class="txt"><strong>Rating: </strong><%= chef_profile.average_rating %></p>
                 <p class="txt"><strong>Cuisines: </strong>
                 <% chef_profile.cuisines.each do |f|%>
                   <%= "| #{f} |" %>

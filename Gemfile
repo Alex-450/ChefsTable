@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
-
+# Remote
+gem 'turbolinks_render'
 # Kitignor
 gem 'dotenv-rails', groups: [:development, :test]
 # Cloudinary
