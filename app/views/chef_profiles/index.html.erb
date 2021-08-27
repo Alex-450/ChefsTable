@@ -5,7 +5,7 @@
   </div>
 </header>
 
-<main class="container mt-5 chef-profiles">
+<main class="container mt-5 chef-profiles mb-5">
   <div class="row">
   <% @chef_profiles.each do |chef_profile| %>
     <% user = User.find(chef_profile.user_id) %>
