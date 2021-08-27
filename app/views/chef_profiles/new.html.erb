@@ -12,6 +12,7 @@
             <label for="<%= id %>"><%= cuisine %></label>
           <% end %>
           <%= f.input :photo, as: :file %>
+          <%= f.input :description %>
           <%= f.submit class: 'btn btn-submit' %>
         <% end %>
       </div>

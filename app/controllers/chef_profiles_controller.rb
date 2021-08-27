@@ -50,6 +50,6 @@ class ChefProfilesController < ApplicationController
   end
 
   def chef_profile_params
-    params.require(:chef_profile).permit(:user_id, :location, :photo, cuisines: [])
+    params.require(:chef_profile).permit(:user_id, :location, :description, :photo, cuisines: [])
   end
 end
