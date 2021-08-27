@@ -1,69 +1,77 @@
 <% user = User.find(@chef_profile.user_id) %>
-<div class="chef-prof-detail">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-3 chef-pic">
-        <img src="<%= cl_image_path @chef_profile.photo.key, width: 450, height: 600, crop: :fill %>" alt="picture of chef">
-      </div>
-      <div class="col-sm-12 col-md-6 chef-info">
-        <h1><%= user.first_name %> <%= user.last_name %></h1>
-        <div class="chef-description">
-          <p><%= @chef_profile.description %></p>
+<div class="chef-prof-detail ">
+  <div class="form-container padding-200 ">
+    <div class=" booking-table width-80">
+      <div class="head d-flex">
+        <div class="chef-pic pr-3 ">
+          <img src="<%= cl_image_path @chef_profile.photo.key, width: 450, height: 600, crop: :fill %>" alt="picture of chef">
         </div>
-        <dl>
-          <dt>Cuisines</dt>
-            <dd>
-              <% @chef_profile.cuisines.each do |cuisine| %>
-                <span class="badge badge-pill badge-success"><%= cuisine %></span>
-              <% end %>
-            </dd>
-          <dt>Location</dt>
-            <dd class="badge badge-pill badge-success"><%= @chef_profile.location %></dd>
-        </dl>
-      </div>
-      <div class="col-sm-12 col-md-3 chef-buttons">
-        <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-submit-green' %>
-        <%= link_to 'back to all chefs', chef_profiles_path, class: 'btn btn-submit-blue' %>
-        <% if policy(@chef_profile).destroy? %>
-          <%= link_to 'delete this chef', chef_profile_path, method: :delete, class: 'btn btn-submit-red', data: { confirm: 'Are you sure you want to delete your chef profile?' } %>
-        <% end %>
-        <script>
-          <% flash.each do |name, msg| %>
-            alert('<%= msg %>');
+        <div class="chef-info">
+          <h1><%= user.first_name %> <%= user.last_name %></h1>
+          <div class="chef-description">
+            <p><%= @chef_profile.description %></p>
+          </div>
+
+          <% @chef_profile.cuisines.each do |cuisine| %>
+          <div class="d-flex">
+            <strong>Cuisines: </strong> <div class="pl-3"><%= cuisine %> </div>
+          </div>
+          <div class="d-flex">
+            <strong>Location:   </strong> <div class="pl-3"><%= @chef_profile.location.capitalize %></div>
+          </div>
           <% end %>
-        </script>
+        </div>
       </div>
-    </div>
 
-  <section class="grid-2">
-    <% if @chef_profile.reviews.any? %>
-      <% @chef_profile.reviews.each do |f|%>
-      <div>
-        <div class="testimonial-box">
-          <div class="box-top">
-            <div class="profile">
-                <div class="profile-img">
-                    <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                </div>
 
-                <div class="name-user">
-                  <strong><%= current_user.first_name %></strong>
+        <div class="review-section d-flex">
+          <section class="grid">
+            <% if @chef_profile.reviews.any? %>
+              <% @chef_profile.reviews.each do |f|%>
+              <div>
+                <div class="testimonial-box form-background ">
+                  <div class="box-top">
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                        </div>
+
+                        <div class="name-user ">
+                          <strong><%= current_user.first_name %></strong>
+                        </div>
+                      </div>
+                    <div class="reviews">
+                    <% f.rating.times do %>
+                      <i class="fas fa-star gold"></i>
+                    <% end %>
+                    </div>
+                  </div>
+                <div class="client-comment">
+                  <p> <%= f.comment %></p>
                 </div>
               </div>
-            <div class="reviews">
-            <% f.rating.times do %>
-              <i class="fas fa-star black"></i>
+              <% end %>
+            <% else %>
+            <p>No reviews yet</p>
             <% end %>
-            </div>
-          </div>
-        <div class="client-comment">
-          <p> <%= f.comment %></p>
+          </section>
         </div>
-      </div>
-      <% end %>
-    <% else %>
-    <p>No reviews yet</p>
-    <% end %>
-  </section>
-  </div>
-</div>
+
+          <div class="chef-buttons d-flex">
+            <div class="d-flex justify-content-center">
+              <%= link_to 'book this chef', new_chef_profile_booking_path(@chef_profile), class: 'btn btn-submit-green' %>
+              <%= link_to 'back to all chefs', chef_profiles_path, class: 'btn btn-submit' %>
+              <% if policy(@chef_profile).destroy? %>
+                <%= link_to 'delete this chef', chef_profile_path, method: :delete, class: 'btn btn-submit-red', data: { confirm: 'Are you sure you want to delete your chef profile?' } %>
+              <% end %>
+            </div>
+            <script>
+              <% flash.each do |name, msg| %>
+                alert('<%= msg %>');
+              <% end %>
+            </script>
+          </div>
+
+          </div>
+        </div>
+    </div>

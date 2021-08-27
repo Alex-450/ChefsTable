@@ -35,11 +35,13 @@ a{
 }
 .testimonial-box{
     width:500px;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    background-color: #ffffff;
+    // box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    // background-color: #ffffff;
     padding: 20px;
     margin: 15px;
     cursor: pointer;
+    border: 1px rgba(17, 25, 40, 0.75) solid;
+    box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.3);
 }
 .profile-img{
     width:50px;
@@ -61,9 +63,12 @@ a{
 .name-user{
     display: flex;
     flex-direction: column;
+    color: $light-gray;
+
 }
+
 .name-user strong{
-    color: #3d3d3d;
+    color: $light-gray;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
 }
@@ -82,15 +87,15 @@ a{
 }
 .client-comment p{
     font-size: 0.9rem;
-    color: #4b4b4b;
+    color: $light-gray;
 }
 .testimonial-box:hover{
     transform: translateY(-10px);
     transition: all ease 0.3s;
 }
 
-.black{
-  color: black;
+.gold{
+  color: rgb(252, 206, 120);
 }
 
 @media(max-width:1060px){
@@ -117,6 +122,6 @@ a{
     }
 }
 ::selection{
-    color: #ffffff;
+    color: $light-gray;
     background-color: #252525;
 }
