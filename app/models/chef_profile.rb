@@ -12,4 +12,18 @@ class ChefProfile < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def average_rating
+    sum = 0
+    count = 0
+    if self.reviews.any?
+      self.reviews.each do |review|
+        sum += review.rating
+        count += 1
+      end
+      return sum/count
+    else
+      return 0
+    end
+  end
 end

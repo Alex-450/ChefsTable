@@ -19,6 +19,7 @@
           <div class="n-ppost-name text-center">
             <div>
               <p class="txt"><strong>Name: </strong><%= user.first_name %></p>
+              <p class="txt"><strong>Rating: </strong><%= chef_profile.average_rating %></p>
                 <p class="txt"><strong>Cuisines: </strong>
                 <% chef_profile.cuisines.each do |f|%>
                   <%= "| #{f} |" %>
