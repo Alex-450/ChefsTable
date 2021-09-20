@@ -6,9 +6,12 @@ class ChefProfilesController < ApplicationController
     @chef_profiles = policy_scope(ChefProfile).order(created_at: :desc)
     if params[:query].present?
       @chef_profiles = ChefProfile.search_by_cuisines_and_location_and_description(params[:query])
+    elsif params[:cuisines].present?
+      @chef_profiles = ChefProfile.search_by_cuisines(params[:cuisines])
     else
       @chef_profiles = ChefProfile.all
     end
+
   end
 
 

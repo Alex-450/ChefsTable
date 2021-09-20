@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
   resources :bookings, only: [:index, :show]
   patch 'bookings/:id', to: "bookings#update"
+
+  get '/cuisines/:id', to: 'chef_profiles#index_by_cuisine'
 end
